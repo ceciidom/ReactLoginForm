@@ -1,12 +1,11 @@
 import "./List.css";
 import InputBox from "./InputBox";
 import ListItem from "./ListItem";
-import React, { useState } from "react";
-
+import { useState } from "react";
 
 let itemId = 0;
 
-export function List() {
+function List() {
     const [items, setItems] = useState([]);
     const [editingItemId, setEditingItemId] = useState(null);
     const [editedText, setEditedText] = useState("");
@@ -61,3 +60,5 @@ export function List() {
     </div>
   );
 }
+
+export default List

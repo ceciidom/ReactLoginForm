@@ -1,12 +1,12 @@
 import React from 'react';
 import './App.css'
-import { List } from "./assets/components/List.jsx";
+import LoginForm from './assets/components/LoginForm.jsx';
 
 function App() {
 
   return (
     <>
-      <List/>
+      <LoginForm />
     </>
   )
 }

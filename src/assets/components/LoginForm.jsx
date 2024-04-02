@@ -1,15 +1,15 @@
 import { useState } from "react";
 import "./LoginForm.css";
-import List from "./List";
+
 
 //CORRECT USERNAME: eve.holt@reqres.in
 
-function LoginForm() {
+function LoginForm({ onSuccess }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -28,7 +28,7 @@ function LoginForm() {
       if (!response.ok) {
         throw new Error("Usuario o contraseña incorrectos.");
       }
-      setIsLoggedIn(true);
+      onSuccess();
     } catch (error) {
       setError(error.message);
     } finally {
@@ -42,16 +42,6 @@ function LoginForm() {
 
   if (error) {
     return <div>Error: {error}</div>;
-  }
-
-  if (isLoggedIn) {
-    return (
-     <>
-    <List />
-    </>
-    )
-    
-   
   }
 
   return (
